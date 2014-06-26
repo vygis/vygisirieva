@@ -113,8 +113,7 @@
             sectionInfo = getSectionInfo($("div.section-wrapper")),    
             activeSection = false,
             navFixedImmediately = navElement.hasClass("navbar-fixed-top"),// the margins change slightly depending on whether the nav is fixed on page load (ie. after a page refresh )
-            topMargin = navFixedImmediately ? (navElement.height() / 2) : navElement.height(); 
-            console.log(topMargin);
+            topMargin = navFixedImmediately ? (navElement.height() / 2) : navElement.height();
 
 
 
@@ -155,6 +154,34 @@
             }
 
         });
+
+
+
+        /*MAP STUFF*/
+
+        var map = new google.maps.Map(document.getElementById("map-canvas"),
+                {
+                    center: new google.maps.LatLng(54.897317,23.888133),
+                    zoom: 15
+                }
+            ),
+            markers = [
+                new google.maps.Marker({
+                    position: new google.maps.LatLng(54.896873,23.885948),
+                    title:"Rotušė"
+                }),
+                new google.maps.Marker({
+                    position: new google.maps.LatLng(54.89467,23.88507),
+                    title:"Prieplauka"
+                }),
+                new google.maps.Marker({
+                    position: new google.maps.LatLng(54.896392,23.892943),
+                    title:"Senieji rūsiai"
+                })
+            ];
+            _.each(markers, function(marker) {
+                marker.setMap(map);
+            });
 
     });
 
