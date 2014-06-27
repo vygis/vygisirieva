@@ -161,22 +161,40 @@
 
         var map = new google.maps.Map(document.getElementById("map-canvas"),
                 {
+                    scrollwheel: false,
                     center: new google.maps.LatLng(54.897317,23.888133),
-                    zoom: 15
+                    zoom: 14
                 }
             ),
+
+//            markers = [
+//                {
+//                    title: ""
+//                }
+//
+//
+//            ],
+
+
+
+
+
+
             markers = [
                 new google.maps.Marker({
                     position: new google.maps.LatLng(54.896873,23.885948),
-                    title:"Rotušė"
+                    title:"Rotušė",
+                    icon:"http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=1|E3545B|000000"
                 }),
                 new google.maps.Marker({
                     position: new google.maps.LatLng(54.89467,23.88507),
-                    title:"Prieplauka"
+                    title:"Prieplauka",
+                    icon:"http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=2|E3545B|000000"
                 }),
                 new google.maps.Marker({
                     position: new google.maps.LatLng(54.896392,23.892943),
-                    title:"Senieji rūsiai"
+                    title:"Senieji rūsiai",
+                    icon:"http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=3|E3545B|000000"
                 })
             ];
             _.each(markers, function(marker) {
