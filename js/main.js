@@ -108,7 +108,7 @@
 
        var animationTime = 600, // time in milliseconds
             contentTop = [],
-            linkElements = $(".nav a"),
+            linkElements = $("#pirmyn, #atgal, .nav a"),
             navElement = $("nav"),
             sectionInfo = getSectionInfo($("div.section-wrapper")),    
             activeSection = false,

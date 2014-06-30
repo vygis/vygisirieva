@@ -12,7 +12,7 @@
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.css">
         <link rel="stylesheet" href="css/custom.css">
     </head>
     <body>
@@ -23,25 +23,22 @@
         <div class="intro-wrapper">
             <div class="container-fluid">
                 <div class="container">
-                    <!-- <div class="logo"><img src="img/oakTree.jpg" alt="world tree"/></div> -->
-                    <div class="logo">
-                        <p><span>Vygis</span> ir <span>Ieva</span></p>
-                        <p>2014 09 05</p>
-                    </div>
+                    <a href="#kas" class="no-underline" id="pirmyn">
+                        <div class="logo">
+                            <p><span>Vygis</span> ir <span>Ieva</span></p>
+                            <p>2014 09 05</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
 
         <div class="navigation-wrapper">
             <nav class="navbar navbar-default" role="navigation">
-                <!--<div class="container">-->
-                    <!--<div class="pull-left"><img class="small" src="img/oakBranch.jpg" alt=""/></div>-->
-                <!--</div>-->
                     <ul class="nav navbar-nav">
-                        <li><a data-section-id="green" class="color green" href="#kas">kas kur kada?</a></li>
-                        <li><a data-section-id="yellow" class="color yellow" href="#veiksmas">veiksmo vietos</a></li>
-                        <li><a data-section-id="red" class="color red" href="#programa">programa</a></li>
-                        <li><a data-section-id="blue" class="color blue" href="#duk">DUK</a></li>
+                        <li><a data-section-id="green" class="color green" href="#kas">skelbiam</a></li>
+                        <li><a data-section-id="yellow" class="color yellow" href="#veiksmas">planas</a></li>
+                        <li><a data-section-id="blue" class="color blue" href="#duk">klausimai</a></li>
                     </ul>
             </nav>
         </div>
@@ -55,36 +52,98 @@
         <div id="veiksmas" data-section-id="yellow" class="section-wrapper bottom-divider yellow">
             <div class="container-fluid">
                 <div class="margin-large"></div>
+
                 <div class="panel panel-default">
-                    <div class="panel-heading">Kaunas</div>
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Vietos</h3>
+                    </div>
                     <div class="panel-body">
-                        <div class="col-sm-8">
-                            <div class="map-holder panel">
-                                <div id="map-canvas"></div>
+                        <div class="col-sm-6">
+                            <b>Rotušė</b>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum explicabo in ipsa iusto voluptatibus!</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="responsive-holder">
+                                <img class="responsive-image" src="/assets/kauno_rotuse.jpg"/>
                             </div>
                         </div>
-                        <div class="col-sm-4">
-                            <div id="mapLinks" class="list-group">
-                                <a href="#" class="list-group-item">1: Rotušė</a>
-                                <a href="#" class="list-group-item">2: Prieplauka</a>
-                                <a href="#" class="list-group-item">3: Senieji Rūsiai</a>
+                    </div>
+                    <hr/>
+                    <div class="panel-body">
+                        <div class="col-sm-6">
+                            <b>Pasiplaukiojimas Nemunu laivu 'Perlas'</b>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum explicabo in ipsa iusto voluptatibus!</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="responsive-holder">
+                                <img class="responsive-image" src="/assets/perlas.jpg"/>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Žemėlapis</h3>
+                        </div>
+                    <div class="panel-body">
+                        <div class="col-sm-8">
+                            <div class="responsive-holder panel">
+                                <div id="map-canvas" class="responsive-image"></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div id="mapLinks" class="list-group">
+                                <a href="#" class="list-group-item">1) Rotušė</a>
+                                <a href="#" class="list-group-item">2) Prieplauka</a>
+                                <a href="#" class="list-group-item">3) Senieji rūsiai</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Tvarkaraštis</h3>
+                    </div>
+                    <div class="panel-body">
+
+                        <table class="table no-head">
+                            <tbody>
+                            <tr>
+                                <td>16:10-17:30</td>
+                                <td>Susirašymas Kauno rotušėje.</td>
+                            </tr>
+                            <tr>
+                                <td>17:00-17:30</td>
+                                <td>Einam į prieplauką, lipam į laivą. Užkandžiai.</td>
+                            </tr>
+                            <tr>
+                                <td>17:30-19:30</td>
+                                <td>Pasiplaukiojimas laivu po Nemuną.</td>
+                            </tr>
+                            <tr>
+                                <td>19:30-20:00</td>
+                                <td>Laivas grįžta į prieplauką, einame į Senuosius rūsius (pėsčiomis, turėtų trukti apie 10 minučių).</td>
+                            </tr>
+                            <tr>
+                                <td>20:00-01:00</td>
+                                <td>Pobūvis Senuosiuose rūsiuose.</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
             </div>
         </div>
 
-        <div id="programa" data-section-id="red" class="section-wrapper bottom-divider red">
-            <div class="container-fluid">
-
-            </div>
-        </div>
 
         <div id="duk" data-section-id="blue" class="section-wrapper bottom-divider blue">
             <div class="margin-large"></div>
             <div class="container-fluid">
-                <div class="panel panel-primary">
+                <div class="panel panel-default">
                   <div class="panel-heading">
                     <h3 class="panel-title">Ar galima pasiimti vaikus?</h3>
                   </div>
@@ -98,7 +157,7 @@
                   </div>
                 </div>
 
-                <div class="panel panel-primary">
+                <div class="panel panel-default">
                   <div class="panel-heading">
                     <h3 class="panel-title">Antras klausimas?</h3>
                   </div>
@@ -112,7 +171,7 @@
                   </div>
                 </div>
 
-                <div class="panel panel-primary">
+                <div class="panel panel-default">
                   <div class="panel-heading">
                     <h3 class="panel-title">Trečias klausimas?</h3>
                   </div>
@@ -126,7 +185,7 @@
                   </div>
                 </div>
 
-                <div class="panel panel-primary">
+                <div class="panel panel-default">
                   <div class="panel-heading">
                     <h3 class="panel-title">Ketvirtas klausimas?</h3>
                   </div>
@@ -140,7 +199,7 @@
                   </div>
                 </div>
 
-                <div class="panel panel-primary">
+                <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">Penktas klausimas?</h3>
                     </div>
@@ -154,7 +213,7 @@
                     </div>
                 </div>
 
-                <div class="panel panel-primary">
+                <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">Šeštas klausimas?</h3>
                     </div>
@@ -168,7 +227,7 @@
                     </div>
                 </div>
 
-                <div class="panel panel-primary">
+                <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">Septintas klausimas?</h3>
                     </div>
@@ -182,7 +241,7 @@
                     </div>
                 </div>
 
-                <div class="panel panel-primary">
+                <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">Yra neatsakytų klausimų?</h3>
                     </div>
@@ -195,9 +254,9 @@
         </div>
 
         <div class="footer-wrapper gray">
-            <div class="container-fluid">
-                <a>atgal <span class="glyphicon glyphicon-arrow-up"></span></a>
-            </div>
+
+                <a id="atgal" href="#pirmyn">atgal <span class="glyphicon glyphicon-arrow-up"></span></a>
+
         </div>
 
         <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
@@ -207,28 +266,3 @@
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2vf9FuIqGlXQ_4-WQHFBJMQ8zXp6ryyY"></script>
     </body>
 </html>
-
-
-
-<!-- PUSLAPIO STRUKTŪRA:
-
-    KAS KUR KADA?
-        rugsėjo 5 dieną Kaune vyksta vestuvės ... bla bla ir taip toliau
-
-    VEIKSMO VIETOS:
-        rotušė 
-        laivas
-        restoranas
-        
-    PROGRAMA:
-
-        16:10 rotušė ir t.t.
-
-
-    KLAUSIMAI:
-        dovanos
-        kaip apsirengti
-        nakvynė
-
-
- -->
