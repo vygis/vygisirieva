@@ -68,7 +68,7 @@
         sectionElements.each(function(){
             var elem = jQuery(this),
                 id = elem.data("section-id"),
-                bottomPixels = elem.offset().top + elem.height();
+                bottomPixels = Math.floor(elem.offset().top + elem.height());
             returnObj.bottomValues[bottomPixels] = id;
         });
         return returnObj;
