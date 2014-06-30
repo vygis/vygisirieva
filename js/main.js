@@ -163,42 +163,60 @@
                 {
                     scrollwheel: false,
                     center: new google.maps.LatLng(54.897317,23.888133),
-                    zoom: 14
+                    zoom: 15
                 }
             ),
-
-//            markers = [
-//                {
-//                    title: ""
-//                }
-//
-//
-//            ],
-
-
-
-
-
-
             markers = [
-                new google.maps.Marker({
-                    position: new google.maps.LatLng(54.896873,23.885948),
-                    title:"Rotušė",
-                    icon:"http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=1|E3545B|000000"
-                }),
-                new google.maps.Marker({
-                    position: new google.maps.LatLng(54.89467,23.88507),
-                    title:"Prieplauka",
-                    icon:"http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=2|E3545B|000000"
-                }),
-                new google.maps.Marker({
-                    position: new google.maps.LatLng(54.896392,23.892943),
-                    title:"Senieji rūsiai",
-                    icon:"http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=3|E3545B|000000"
-                })
-            ];
-            _.each(markers, function(marker) {
+                {
+                    title: "Rotušė",
+                    latitude: 54.896873,
+                    longtitude: 23.885948,
+                    content: "<b>Rotušė</b>"
+                },
+                {
+                    title: "Prieplauka",
+                    latitude: 54.89467,
+                    longtitude: 23.88507,
+                    content: "<b>Prieplauka</b>"
+                },
+                {
+                    title: "Senieji rūsiai",
+                    latitude: 54.896392,
+                    longtitude: 23.892943,
+                    content: "<b>Senieji rūsiai</b>"
+                }
+            ],
+            activeClassName = "active",
+            mapLinks = $("#mapLinks a"),
+            infoWindow = new google.maps.InfoWindow({
+                content: ""
+            });
+            infoWindow.addListener("closeclick", function(){
+               mapLinks.removeClass(activeClassName)
+            });
+            _.each(markers, function(markerData, index) {
+                var position = new google.maps.LatLng(markerData.latitude, markerData.longtitude),
+                    marker = new google.maps.Marker({
+                        position: position,
+                        title: markerData.title,
+                        icon:"http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=" + (index + 1)+ "|E3545B|000000"
+                    }),
+                    mapLink = mapLinks.eq(index),
+                    clickFunction = function () {
+                        mapLinks.removeClass(activeClassName);
+                        mapLink.addClass(activeClassName);
+                        infoWindow.content = markerData.content;
+                        infoWindow.open(map,marker);
+                    };
                 marker.setMap(map);
+
+                google.maps.event.addListener(marker, 'click', function() {
+                    clickFunction();
+                });
+                mapLink.click(function(event){
+                    event.preventDefault();
+                    clickFunction();
+                });
             });
 
     });
