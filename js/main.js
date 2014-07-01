@@ -80,13 +80,12 @@
                 $('html,body').stop();
             }
         });
+        $(".navigation-wrapper").height(topMargin / 2); //preventing jumpy behaviour, see http://stackoverflow.com/questions/12070970
+        navElement.affix({
+            offset: { top: navElement.offset().top }
+        });
 
         $(window).scroll(function () {
-
-            $(".navigation-wrapper").height(navElement.height()); //preventing jumpy behaviour, see http://stackoverflow.com/questions/12070970
-            navElement.affix({
-                offset: { top: navElement.offset().top }
-            });
 
             recalculatedActiveSection = determineActiveSection(sectionInfo, $(document).scrollTop(), topMargin); //not caching height as it can change after a resize
 
