@@ -104,7 +104,7 @@
         var map = new google.maps.Map(document.getElementById("map-canvas"),
                 {
                     scrollwheel: false,
-                    center: new google.maps.LatLng(54.897317, 23.888133),
+                    center: new google.maps.LatLng(54.895762,23.888698),
                     zoom: 15
                 }
             ),
