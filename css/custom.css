@@ -1,8 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
 @import url(http://fonts.googleapis.com/css?family=Voltaire);
-
-
-body{
+@import url(http://fonts.googleapis.com/css?family=Dosis:500&subset=latin,latin-ext);body{
     min-width: 320px;
 }
 .bottom-divider{
@@ -30,8 +28,17 @@ body{
     font-size:25px;
 }
 
-.section-wrapper{
-    min-height:1500px;
+
+.section-wrapper .panel, .section-wrapper .statement{
+    max-width:980px;
+    margin-left:auto;
+    margin-right:auto;
+}
+.statement{
+    text-align: center;
+    font-family: Dosis;
+    font-size:25px;
+    padding:10px;
 }
 
 .margin-small{
@@ -125,6 +132,13 @@ img.small{
     }
 }
 
+@media (max-height: 1500px){
+    .logo{
+        margin-top: 150px;
+        margin-bottom: 250px;
+    }
+}
+
 @media (max-height: 750px){
     .logo{
         margin-top: 120px;
@@ -134,8 +148,8 @@ img.small{
 
 @media (max-height: 400px){
     .logo{
-        margin-top: 100px;
-        margin-bottom: 100px;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
 }
 
