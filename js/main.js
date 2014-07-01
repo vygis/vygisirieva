@@ -1,14 +1,4 @@
 (function (jQuery) {
-    function toggleClassOnHeight(element, className, height) {
-        var scrolltop = $(window).scrollTop(),
-            elementHasClass = element.hasClass(className);
-        if ((scrolltop > height) && !elementHasClass) {
-            element.addClass(className);
-        }
-        else if ((scrolltop <= height) && elementHasClass) {
-            element.removeClass(className);
-        }
-    };
 
     function applyActiveClassBySectionId(elements, activeSectionId, activeClassName) {
         elements.each(function () {
@@ -63,13 +53,6 @@
 
 
     jQuery(document).ready(function ($) {
-        function toggleClassWrapper() {
-            toggleClassOnHeight($(".navbar-default"), "navbar-fixed-top", $('.intro-wrapper').height());
-        }
-
-
-        toggleClassWrapper(); //in case the page is refreshed on a section
-
 
         var animationTime = 600, // time in milliseconds
             linkElements = $("#pirmyn, #atgal, .nav a"),
@@ -99,7 +82,11 @@
         });
 
         $(window).scroll(function () {
-            toggleClassWrapper();
+
+            $(".navigation-wrapper").height(navElement.height()); //preventing jumpy behaviour, see http://stackoverflow.com/questions/12070970
+            navElement.affix({
+                offset: { top: navElement.offset().top }
+            });
 
             recalculatedActiveSection = determineActiveSection(sectionInfo, $(document).scrollTop(), topMargin); //not caching height as it can change after a resize
 

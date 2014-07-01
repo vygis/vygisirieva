@@ -11,7 +11,7 @@
     margin-bottom:0px;
 }
 .navigation-wrapper{
-    min-height:60px;
+    /*min-height:60px;*/
 }
 .footer-wrapper{
     min-height:80px;
@@ -88,8 +88,12 @@ img.small{
 }
 
 
-.navbar-fixed-top, .transparent{
+.affix{
+    position: fixed;
+    top: 0;
+    width: 100%;
     opacity:0.9;
+    z-index:2;
 }
 
 .navbar-nav{
@@ -223,7 +227,6 @@ div.panel{
 table.no-head tr:first-child td{
     border-top: none;
 }
-
 
 
 
