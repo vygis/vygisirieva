@@ -54,6 +54,11 @@
 
     jQuery(document).ready(function ($) {
 
+        /*SHOW PAGE*/
+
+        $('body').fadeIn();
+
+
         var animationTime = 600, // time in milliseconds
             linkElements = $("#pirmyn, #atgal, .nav a"),
             navElement = $("nav"),
