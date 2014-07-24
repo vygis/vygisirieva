@@ -54,6 +54,19 @@
 
     jQuery(document).ready(function ($) {
 
+
+        /*PRIVILEGES*/
+
+        var raktas = window.location.search.match(/raktas=(\w+)/),
+            privilegedClass = 'privileged',
+            privilegedAccess = raktas !== null && raktas.length === 2 && raktas[1] === 'rusiai';
+        
+        if(privilegedAccess){
+            $('.' + privilegedClass).removeClass(privilegedClass);
+        }
+
+
+
         /*SHOW PAGE*/
 
         $('body').fadeIn();
@@ -132,12 +145,6 @@
                     latitude: 54.89467,
                     longtitude: 23.88507,
                     content: "<b>Prieplauka</b>"
-                },
-                {
-                    title: "Senieji rūsiai",
-                    latitude: 54.896392,
-                    longtitude: 23.892943,
-                    content: "<b>Senieji rūsiai</b>"
                 }
             ],
             activeClassName = "active",
@@ -145,6 +152,14 @@
             infoWindow = new google.maps.InfoWindow({
                 content: ""
             });
+            if(privilegedAccess){
+                markers.push({
+                    title: "Senieji rūsiai",
+                    latitude: 54.896392,
+                    longtitude: 23.892943,
+                    content: "<b>Senieji rūsiai</b>"
+                });
+            }
         infoWindow.addListener("closeclick", function () {
             mapLinks.removeClass(activeClassName)
         });
