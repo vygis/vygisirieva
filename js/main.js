@@ -97,6 +97,14 @@
 
         });
 
+        /*MAILTO LINK*/
+
+        $(".email").click(function(e){
+            window.location.href = "mailto:" + $(this).html().replace(' [eta] ', '@') + "?Subject=Klausimas dėl vestuvių";
+            e.preventDefault();
+
+        })
+
 
         /*MAP STUFF*/
 
