@@ -69,7 +69,7 @@
 
         /*SHOW PAGE*/
 
-        $('body').fadeIn();
+        $('body').show();
 
 
         var animationTime = 600, // time in milliseconds
