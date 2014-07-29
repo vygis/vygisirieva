@@ -43,13 +43,17 @@
         for (var i = 0, len = sectionBottomValues.length; i < len; i++) {
             var currentSectionBottomValue = sectionBottomValues[i];
             if (height < currentSectionBottomValue) {
-
                 activeSection = sectionInfo.bottomValues[currentSectionBottomValue];
                 break;
             }
         }
         return activeSection;
     };
+
+    function determineTopMargin(navElement){
+        var navFixedImmediately = navElement.hasClass("navbar-fixed-top");
+        return  navFixedImmediately ? (navElement.height() / 2) : navElement.height();
+    }
 
 
     jQuery(document).ready(function ($) {
@@ -69,17 +73,13 @@
 
         /*SHOW PAGE*/
 
-        $('body').show();
+        $('.main-wrapper').show();
 
 
         var animationTime = 600, // time in milliseconds
             linkElements = $("#pirmyn, #atgal, .nav a"),
             navElement = $("nav"),
-            sectionInfo = getSectionInfo($("div.section-wrapper")),
-            activeSection = false,
-            navFixedImmediately = navElement.hasClass("navbar-fixed-top"), // the margins change slightly depending on whether the nav is fixed on page load (ie. after a page refresh )
-            topMargin = navFixedImmediately ? (navElement.height() / 2) : navElement.height();
-
+            activeSection = false;
 
         // Animate menu scroll to content
         linkElements.click(function () {
@@ -98,15 +98,15 @@
                 $('html,body').stop();
             }
         });
-        $(".navigation-wrapper").height(topMargin / 2); //preventing jumpy behaviour, see http://stackoverflow.com/questions/12070970
+        $(".navigation-wrapper").height(navElement.height() / 2); //preventing jumpy behaviour, see http://stackoverflow.com/questions/12070970
         navElement.affix({
             offset: { top: navElement.offset().top }
         });
 
         $(window).scroll(function () {
+            var sectionInfo = getSectionInfo($("div.section-wrapper"));
 
-            recalculatedActiveSection = determineActiveSection(sectionInfo, $(document).scrollTop(), topMargin); //not caching height as it can change after a resize
-
+            recalculatedActiveSection = determineActiveSection(sectionInfo, $(document).scrollTop(), determineTopMargin(navElement)); //not caching height as it can change after a resize
             if (activeSection !== recalculatedActiveSection) {
                 activeSection = recalculatedActiveSection;
                 applyActiveClassBySectionId(linkElements, activeSection, 'active');
